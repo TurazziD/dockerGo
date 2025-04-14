@@ -6,6 +6,9 @@ WORKDIR /app
 # Copiando o código fonte
 COPY main.go .
 
+# Inicializando um módulo Go
+RUN go mod init fullcycle
+
 # Compilando o código com flags para reduzir o tamanho
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o app .
 
